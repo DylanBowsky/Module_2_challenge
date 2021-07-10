@@ -111,9 +111,12 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
+    # print(qualifying_loans)
     csvpath = Path('./data/output/qualifying_loans.csv')
-    csvpath = questionary.confirm("./data/output/qualifying_loans.csv").ask()
-    save_csv(csvpath, qualifying_loans)
+    q1 = questionary.confirm("./data/output/qualifying_loans.csv").ask()
+    print(q1)
+    if q1:
+        save_csv(csvpath, qualifying_loans)
 
 
 def run():

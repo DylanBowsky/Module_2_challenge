@@ -37,5 +37,7 @@ def save_csv(csvpath, data, header=None):
     
         if header:
             csvwriter.writerow(header)
+        csvwriter.writerows(data)
     
-    csvwriter.writerows(data)
+        # for row in data:
+        #      csvwriter.writerows(row)
