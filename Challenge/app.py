@@ -111,12 +111,32 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
-    # print(qualifying_loans)
+   #This will be the second part of the users interface after completing the questioneer 
+   #This allows the user to determine if they will want to save their file and make sure it is a csv
     csvpath = Path('./data/output/qualifying_loans.csv')
-    q1 = questionary.confirm("./data/output/qualifying_loans.csv").ask()
-    print(q1)
-    if q1:
-        save_csv(csvpath, qualifying_loans)
+    data = qualifying_loans
+    
+    if qualifying_loans:
+        q1 = questionary.text("Would you like to save your list of qualifying loans?").ask()
+        if q1 == "No":
+                sys.exit("Thank you for your time")
+        q2 = questionary.text("Would you like to save this file as a csv?").ask()
+        if q2 == "No":
+            sys.exit("Unfortunately at this current time this file needs to be a .csv file, please check back later we may have updated our system")
+        
+        q3 = questionary.confirm("The file path will be './data/output/qualifying_loans.csv' is that okay?").ask()
+        return save_csv(csvpath, data) 
+
+#When there are no loans the user qualifies for this will prompt and exit out of the system
+    else:    
+        sys.exit("I am sorry there are no qualifying loans at this time, please check back later.")
+
+    
+    
+  
+
+
+        
 
 
 def run():

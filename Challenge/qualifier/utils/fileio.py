@@ -34,10 +34,8 @@ def save_csv(csvpath, data, header=None):
     with open(csvpath,"w", newline="") as csvfile:
     
         csvwriter = csv.writer(csvfile, delimiter =',')
-    
+    #if the we want to create a header it would make the csv file easier to read in the future
         if header:
             csvwriter.writerow(header)
         csvwriter.writerows(data)
     
-        # for row in data:
-        #      csvwriter.writerows(row)
