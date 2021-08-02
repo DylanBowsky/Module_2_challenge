@@ -129,7 +129,7 @@ def save_qualifying_loans(qualifying_loans):
 
 #When there are no loans the user qualifies for this will prompt and exit out of the system
     else:    
-        sys.exit("I am sorry there are no qualifying loans at this time, please check back later.")
+        sys.exit("I am sorry there are no qualifying loans at this time, please check back later or call us.")
 
     
     
